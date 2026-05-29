@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velociti Bikes — Premium Mountain Bikes & Pro Repairs, Lagos</title>
+  <meta name="description" content="Velociti Bikes — premium mountain bikes and professional repair services in Lagos, Nigeria. Built for the trails, engineered for the city." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            velociti: {
+              teal: '#0A6E68',
+              navy: '#1B4F72',
+              red:  '#A61C00',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-velociti-navy antialiased">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-100">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#top" class="text-xl font-extrabold tracking-widest text-velociti-teal">VELOCITI</a>
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="#about" class="hover:text-velociti-teal transition-colors">About</a></li>
+        <li><a href="#bikes" class="hover:text-velociti-teal transition-colors">Bikes</a></li>
+        <li><a href="#services" class="hover:text-velociti-teal transition-colors">Services</a></li>
+        <li><a href="repair.html" class="hover:text-velociti-teal transition-colors">Book a Repair</a></li>
+        <li><a href="#enquire" class="bg-velociti-teal text-white px-4 py-2 rounded-md hover:bg-velociti-navy transition-colors">Enquire</a></li>
+      </ul>
+      <a href="#enquire" class="md:hidden bg-velociti-teal text-white px-3 py-2 rounded-md text-sm font-medium">Enquire</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="relative">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=2000&q=80"
+        alt="Mountain biker riding on a forest trail at golden hour"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-velociti-navy/85 via-velociti-navy/60 to-transparent"></div>
+    </div>
+    <div class="relative max-w-6xl mx-auto px-6 py-28 md:py-40">
+      <p class="text-velociti-red font-semibold tracking-widest uppercase text-sm mb-4">Lagos, Nigeria</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight max-w-2xl">
+        Built for the Trails.<br />Engineered for Lagos.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-white/90 max-w-xl">
+        Premium mountain bikes and professional repair services for riders who don't settle.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#enquire" class="inline-block bg-velociti-red text-white font-semibold px-7 py-3 rounded-md hover:bg-velociti-navy transition-colors">Send an Enquiry</a>
+        <a href="#bikes" class="inline-block bg-white/10 backdrop-blur text-white font-semibold px-7 py-3 rounded-md border border-white/30 hover:bg-white/20 transition-colors">Browse Bikes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 md:py-28 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-velociti-navy">Premium bikes. Pro-grade service.</h2>
+      <p class="mt-6 text-lg leading-relaxed text-gray-700">
+        Velociti Bikes is Lagos's destination for high-end mountain bikes and professional repair.
+        From trail-ready hardtails to aggressive enduro builds, every bike on our floor is hand-picked
+        and shop-tuned. Our certified mechanics service everything we sell — and everything you ride in on.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bike showcase -->
+  <section id="bikes" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-velociti-navy">The Range</h2>
+        <p class="mt-3 text-gray-600">Four bikes. One obsession with the ride.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=800&q=80" alt="Velociti Apex 29 carbon hardtail mountain bike" class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-lg text-velociti-navy">Velociti Apex 29</h3>
+            <p class="mt-2 text-sm text-gray-600 flex-1">Carbon hardtail, 29" wheels, 1×12 drivetrain. Fast, light, and built for cross-country lines.</p>
+            <p class="mt-4 text-velociti-teal font-bold text-lg">₦2,850,000</p>
+            <a href="#enquire" class="mt-4 text-velociti-red font-semibold text-sm hover:underline">Enquire about this bike →</a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=800&q=80" alt="Velociti Ridge 27.5 full-suspension trail bike" class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-lg text-velociti-navy">Velociti Ridge 27.5</h3>
+            <p class="mt-2 text-sm text-gray-600 flex-1">Full-suspension trail bike, 140mm travel. Confident on the descent, efficient on the climb.</p>
+            <p class="mt-4 text-velociti-teal font-bold text-lg">₦4,200,000</p>
+            <a href="#enquire" class="mt-4 text-velociti-red font-semibold text-sm hover:underline">Enquire about this bike →</a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1502744688674-c619d1586c9e?auto=format&fit=crop&w=800&q=80" alt="Velociti Urban Pro lightweight commuter mountain bike" class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-lg text-velociti-navy">Velociti Urban Pro</h3>
+            <p class="mt-2 text-sm text-gray-600 flex-1">Lightweight commuter MTB with hydraulic disc brakes. Built for Lagos roads and weekend trails.</p>
+            <p class="mt-4 text-velociti-teal font-bold text-lg">₦1,650,000</p>
+            <a href="#enquire" class="mt-4 text-velociti-red font-semibold text-sm hover:underline">Enquire about this bike →</a>
+          </div>
+        </article>
+
+        <article class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col">
+          <img src="https://images.unsplash.com/photo-1571333250630-f0230c320b6d?auto=format&fit=crop&w=800&q=80" alt="Velociti Enduro X aggressive enduro mountain bike" class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-lg text-velociti-navy">Velociti Enduro X</h3>
+            <p class="mt-2 text-sm text-gray-600 flex-1">Aggressive enduro, 160mm travel, dropper post. For the rider who points it down and lets go.</p>
+            <p class="mt-4 text-velociti-teal font-bold text-lg">₦5,900,000</p>
+            <a href="#enquire" class="mt-4 text-velociti-red font-semibold text-sm hover:underline">Enquire about this bike →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services / Repair Packages -->
+  <section id="services" class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-velociti-navy">Repair & Service Packages</h2>
+        <p class="mt-3 text-gray-600">Certified mechanics. Genuine parts. Turnaround you can plan around.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <article class="border border-gray-200 rounded-lg p-8 flex flex-col">
+          <p class="text-velociti-red font-semibold tracking-widest uppercase text-xs">Essentials</p>
+          <h3 class="mt-2 text-xl font-bold text-velociti-navy">Tune-Up</h3>
+          <p class="mt-3 text-sm text-gray-600 flex-1">Gear &amp; brake adjustment, drivetrain clean, tyre pressure, safety check. Ready in 24 hours.</p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-700">
+            <li>&middot; Shifting &amp; brake tune</li>
+            <li>&middot; Drivetrain degrease</li>
+            <li>&middot; 12-point safety inspection</li>
+          </ul>
+          <p class="mt-6 text-velociti-teal font-bold text-lg">₦35,000</p>
+          <a href="repair.html" class="mt-4 inline-block bg-velociti-teal text-white text-center font-semibold px-5 py-3 rounded-md hover:bg-velociti-navy transition-colors">Book Tune-Up</a>
+        </article>
+
+        <article class="border-2 border-velociti-teal rounded-lg p-8 flex flex-col relative shadow-md">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-velociti-teal text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Most Popular</span>
+          <p class="text-velociti-red font-semibold tracking-widest uppercase text-xs">Performance</p>
+          <h3 class="mt-2 text-xl font-bold text-velociti-navy">Full Overhaul</h3>
+          <p class="mt-3 text-sm text-gray-600 flex-1">Complete strip, deep clean, bearing service, new cables &amp; housing, full re-tune. Like-new feel.</p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-700">
+            <li>&middot; Frame strip &amp; ultrasonic clean</li>
+            <li>&middot; Bearing service (hubs, BB, headset)</li>
+            <li>&middot; New cables, housing &amp; pads</li>
+            <li>&middot; Wheel true &amp; tension check</li>
+          </ul>
+          <p class="mt-6 text-velociti-teal font-bold text-lg">₦120,000</p>
+          <a href="repair.html" class="mt-4 inline-block bg-velociti-teal text-white text-center font-semibold px-5 py-3 rounded-md hover:bg-velociti-navy transition-colors">Book Overhaul</a>
+        </article>
+
+        <article class="border border-gray-200 rounded-lg p-8 flex flex-col">
+          <p class="text-velociti-red font-semibold tracking-widest uppercase text-xs">Bespoke</p>
+          <h3 class="mt-2 text-xl font-bold text-velociti-navy">Custom Build</h3>
+          <p class="mt-3 text-sm text-gray-600 flex-1">Frame-up build to your spec. Component consult, professional assembly, full road &amp; trail test.</p>
+          <ul class="mt-5 space-y-2 text-sm text-gray-700">
+            <li>&middot; 1-on-1 component consult</li>
+            <li>&middot; Frame prep &amp; build</li>
+            <li>&middot; Suspension setup to rider weight</li>
+            <li>&middot; 30-day post-build tune included</li>
+          </ul>
+          <p class="mt-6 text-velociti-teal font-bold text-lg">From ₦250,000</p>
+          <a href="repair.html" class="mt-4 inline-block bg-velociti-teal text-white text-center font-semibold px-5 py-3 rounded-md hover:bg-velociti-navy transition-colors">Start a Build</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Web-to-Lead form -->
+  <section id="enquire" class="py-20 md:py-28 bg-gray-50">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-velociti-navy">Send an Enquiry</h2>
+        <p class="mt-3 text-gray-600">Sales, service, or a custom build — a Velociti rep will reach out within 4 hours.</p>
+      </div>
+
+      <!-- Salesforce Web-to-Lead. Posts into a hidden iframe so the page doesn't reload — -->
+      <!-- the inline success message is shown immediately by JS after a valid submit. -->
+      <iframe name="sf-lead-sink" style="display:none" aria-hidden="true" title="Salesforce submission sink"></iframe>
+      <form id="lead-form" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dg500000AQs73" method="POST" target="sf-lead-sink" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+
+        <input type="hidden" name="oid" value="00Dg500000AQs73" />
+        <input type="hidden" name="retURL" value="https://mchenryspagg.github.io/velociti-bike/index.html#enquire" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="first_name" class="block text-sm font-semibold text-velociti-navy mb-2">First Name <span class="text-velociti-red">*</span></label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              maxlength="40"
+              required
+              aria-required="true"
+              aria-describedby="first_name-error"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+            />
+            <span id="first_name-error" class="hidden text-sm text-velociti-red mt-1 block" role="alert"></span>
+          </div>
+
+          <div>
+            <label for="last_name" class="block text-sm font-semibold text-velociti-navy mb-2">Last Name <span class="text-velociti-red">*</span></label>
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              maxlength="80"
+              required
+              aria-required="true"
+              aria-describedby="last_name-error"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+            />
+            <span id="last_name-error" class="hidden text-sm text-velociti-red mt-1 block" role="alert"></span>
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-semibold text-velociti-navy mb-2">Email <span class="text-velociti-red">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            aria-required="true"
+            aria-describedby="email-error"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+          />
+          <span id="email-error" class="hidden text-sm text-velociti-red mt-1 block" role="alert"></span>
+        </div>
+
+        <div>
+          <label for="phone" class="block text-sm font-semibold text-velociti-navy mb-2">Phone <span class="text-velociti-red">*</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+234 800 000 0000"
+            required
+            aria-required="true"
+            aria-describedby="phone-error"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+          />
+          <span id="phone-error" class="hidden text-sm text-velociti-red mt-1 block" role="alert"></span>
+        </div>
+
+        <div>
+          <label for="company" class="block text-sm font-semibold text-velociti-navy mb-2">Company <span class="text-gray-400 font-normal">(optional)</span></label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+          />
+        </div>
+
+        <input type="hidden" id="lead_source" name="lead_source" value="Website" />
+
+        <div>
+          <label for="description" class="block text-sm font-semibold text-velociti-navy mb-2">Tell us what you're looking for</label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-velociti-red text-white font-semibold py-3 rounded-md hover:bg-velociti-navy transition-colors">Send Enquiry</button>
+      </form>
+
+      <div id="lead-success" class="hidden bg-velociti-teal/10 border border-velociti-teal text-velociti-navy rounded-lg p-8 text-center" role="status" aria-live="polite">
+        <h3 class="text-xl font-bold text-velociti-teal">Thanks — a Velociti rep will be in touch within 4 hours.</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-velociti-navy text-white/80 py-12">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <p class="text-white font-extrabold tracking-widest text-lg">VELOCITI</p>
+        <p class="mt-3">Premium mountain bikes and pro repairs in Lagos.</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Visit</p>
+        <p>123 Admiralty Way<br />Lekki Phase 1, Lagos</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Navigate</p>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="#bikes" class="hover:text-white transition-colors">Bikes</a></li>
+          <li><a href="#enquire" class="hover:text-white transition-colors">Enquire</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/60">
+      &copy; <span id="year"></span> Velociti Bikes. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const form = document.getElementById('lead-form');
+      const success = document.getElementById('lead-success');
+
+      const required = ['first_name', 'last_name', 'email', 'phone'];
+
+      function setError(id, msg) {
+        const el = document.getElementById(id + '-error');
+        if (!el) return;
+        if (msg) {
+          el.textContent = msg;
+          el.classList.remove('hidden');
+        } else {
+          el.textContent = '';
+          el.classList.add('hidden');
+        }
+      }
+
+      function validate() {
+        let ok = true;
+        required.forEach(function (name) {
+          const input = document.getElementById(name);
+          const value = (input.value || '').trim();
+          if (!value) {
+            setError(name, 'This field is required.');
+            ok = false;
+            return;
+          }
+          if (name === 'email') {
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRe.test(value)) {
+              setError(name, 'Please enter a valid email address.');
+              ok = false;
+              return;
+            }
+          }
+          setError(name, '');
+        });
+        return ok;
+      }
+
+      form.addEventListener('submit', function (e) {
+        if (!validate()) {
+          e.preventDefault();
+          return;
+        }
+        // Default optional Company field before posting to Salesforce.
+        const company = document.getElementById('company');
+        if (!company.value.trim()) company.value = 'Self';
+        // Form posts into the hidden iframe (target="sf-lead-sink"), so the page doesn't navigate.
+        // Show the success message immediately.
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      required.forEach(function (name) {
+        const input = document.getElementById(name);
+        input.addEventListener('input', function () { setError(name, ''); });
+      });
+    })();
+  </script>
+</body>
+</html>
