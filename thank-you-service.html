@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Repair — Velociti Bikes Lagos</title>
+  <meta name="description" content="Book a bike repair or service with Velociti Bikes. Certified mechanics, genuine parts, fast turnaround in Lagos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            velociti: {
+              teal: '#0A6E68',
+              navy: '#1B4F72',
+              red:  '#A61C00',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-white text-velociti-navy antialiased">
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-30 bg-white/90 backdrop-blur border-b border-gray-100">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-extrabold tracking-widest text-velociti-teal">VELOCITI</a>
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <li><a href="index.html#about" class="hover:text-velociti-teal transition-colors">About</a></li>
+        <li><a href="index.html#bikes" class="hover:text-velociti-teal transition-colors">Bikes</a></li>
+        <li><a href="index.html#services" class="hover:text-velociti-teal transition-colors">Services</a></li>
+        <li><a href="repair.html" class="text-velociti-teal font-semibold">Book a Repair</a></li>
+        <li><a href="index.html#enquire" class="bg-velociti-teal text-white px-4 py-2 rounded-md hover:bg-velociti-navy transition-colors">Enquire</a></li>
+      </ul>
+      <a href="index.html#enquire" class="md:hidden bg-velociti-teal text-white px-3 py-2 rounded-md text-sm font-medium">Enquire</a>
+    </nav>
+  </header>
+
+  <!-- Header -->
+  <section class="bg-velociti-navy text-white py-20 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-velociti-red font-semibold tracking-widest uppercase text-sm mb-3">Repair Ticket</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold">Book a Repair</h1>
+      <p class="mt-5 text-lg text-white/80">Tell us about your bike. A mechanic will confirm your drop-off slot within 4 hours.</p>
+    </div>
+  </section>
+  
+  <section class="py-20 md:py-24 bg-white">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <div class="bg-velociti-teal/10 border border-velociti-teal text-velociti-navy rounded-lg p-12">
+        <h2 class="text-3xl font-bold text-velociti-teal">Ticket received.</h2>
+        <p class="mt-4 text-lg">A Velociti mechanic will confirm your drop-off slot within 4 hours. Check your email for a ticket reference.</p>
+        <a href="index.html" class="mt-8 inline-block bg-velociti-teal text-white font-semibold px-6 py-3 rounded-md hover:bg-velociti-navy transition-colors">← Back to home</a>
+      </div>
+    </div>
+    </section>
+  <!-- Footer -->
+  <footer class="bg-velociti-navy text-white/80 py-12">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <p class="text-white font-extrabold tracking-widest text-lg">VELOCITI</p>
+        <p class="mt-3">Premium mountain bikes and pro repairs in Lagos.</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Visit</p>
+        <p>123 Admiralty Way<br />Lekki Phase 1, Lagos</p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-3">Navigate</p>
+        <ul class="space-y-2">
+          <li><a href="index.html#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#bikes" class="hover:text-white transition-colors">Bikes</a></li>
+          <li><a href="index.html#services" class="hover:text-white transition-colors">Services</a></li>
+          <li><a href="index.html#enquire" class="hover:text-white transition-colors">Enquire</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-xs text-white/60">
+      &copy; <span id="year"></span> Velociti Bikes. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function () {
+      const form = document.getElementById('case-form');
+      const success = document.getElementById('case-success');
+
+      const required = ['name', 'email', 'phone', 'subject', 'type', 'description'];
+
+      function setError(id, msg) {
+        const el = document.getElementById(id + '-error');
+        if (!el) return;
+        if (msg) {
+          el.textContent = msg;
+          el.classList.remove('hidden');
+        } else {
+          el.textContent = '';
+          el.classList.add('hidden');
+        }
+      }
+
+      function validate() {
+        let ok = true;
+        required.forEach(function (name) {
+          const input = document.getElementById(name);
+          const value = (input.value || '').trim();
+          if (!value) {
+            setError(name, 'This field is required.');
+            ok = false;
+            return;
+          }
+          if (name === 'email') {
+            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRe.test(value)) {
+              setError(name, 'Please enter a valid email address.');
+              ok = false;
+              return;
+            }
+          }
+          setError(name, '');
+        });
+        return ok;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!validate()) return;
+
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      required.forEach(function (name) {
+        const input = document.getElementById(name);
+        input.addEventListener('input', function () { setError(name, ''); });
+        input.addEventListener('change', function () { setError(name, ''); });
+      });
+    })();
+  </script>
+</body>
+</html>
