@@ -63,10 +63,10 @@
     <div class="max-w-2xl mx-auto px-6">
 
       <!-- TODO: Replace action URL with Salesforce Web-to-Case endpoint and add hidden orgid field on go-live -->
-      <form id="case-form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg500000AQs73" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+      <form id="case-form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
 
         <input type=hidden name="orgid" value="00Dg500000AQs73">
-        <input type=hidden name="retURL" value="https://mchenryspagg.github.io/velociti-bike">
+        <input type=hidden name="retURL" value="https://mchenryspagg.github.io/velociti-bike/thank-you-service.html">
         <input type="hidden" name="debug" value="1">
         <input type="hidden" name="debugEmail" value="hnry_ugo@yahoo.com">
 
@@ -234,65 +234,63 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    (function () {
-      const form = document.getElementById('case-form');
-      const success = document.getElementById('case-success');
+  (function () {
+    const form = document.getElementById('case-form');
+    const required = ['name', 'email', 'phone', 'subject', 'type', 'description'];
 
-      const required = ['name', 'email', 'phone', 'subject', 'type', 'description'];
-
-      function setError(id, msg) {
-        const el = document.getElementById(id + '-error');
-        if (!el) return;
-        if (msg) {
-          el.textContent = msg;
-          el.classList.remove('hidden');
-        } else {
-          el.textContent = '';
-          el.classList.add('hidden');
-        }
+    function setError(id, msg) {
+      const el = document.getElementById(id + '-error');
+      if (!el) return;
+      if (msg) {
+        el.textContent = msg;
+        el.classList.remove('hidden');
+      } else {
+        el.textContent = '';
+        el.classList.add('hidden');
       }
+    }
 
-      function validate() {
-        let ok = true;
-        required.forEach(function (name) {
-          const input = document.getElementById(name);
-          const value = (input.value || '').trim();
-          if (!value) {
-            setError(name, 'This field is required.');
+    function validate() {
+      let ok = true;
+      required.forEach(function (name) {
+        const input = document.getElementById(name);
+        const value = (input.value || '').trim();
+        if (!value) {
+          setError(name, 'This field is required.');
+          ok = false;
+          return;
+        }
+        if (name === 'email') {
+          const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRe.test(value)) {
+            setError(name, 'Please enter a valid email address.');
             ok = false;
             return;
           }
-          if (name === 'email') {
-            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRe.test(value)) {
-              setError(name, 'Please enter a valid email address.');
-              ok = false;
-              return;
-            }
-          }
-          setError(name, '');
-        });
-        return ok;
-      }
+        }
+        setError(name, '');
+      });
+      return ok;
+    }
 
-      form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) {
+      // Only block submission if validation fails
+      if (!validate()) {
         e.preventDefault();
-        if (!validate()) return;
+        return false;
+      }
+      // Validation passed — let the form POST natively to Salesforce
+    });
 
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-
-      required.forEach(function (name) {
-        const input = document.getElementById(name);
-        input.addEventListener('input', function () { setError(name, ''); });
-        input.addEventListener('change', function () { setError(name, ''); });
-      });
-    })();
-  </script>
+    required.forEach(function (name) {
+      const input = document.getElementById(name);
+      input.addEventListener('input', function () { setError(name, ''); });
+      input.addEventListener('change', function () { setError(name, ''); });
+    });
+  })();
+</script>
 </body>
 </html>
