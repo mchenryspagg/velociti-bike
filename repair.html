@@ -63,7 +63,10 @@
     <div class="max-w-2xl mx-auto px-6">
 
       <!-- TODO: Replace action URL with Salesforce Web-to-Case endpoint and add hidden orgid field on go-live -->
-      <form id="case-form" action="#" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+      <form id="case-form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg500000AQs73" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+
+        <input type=hidden name="orgid" value="00Dg500000AQs73">
+        <input type=hidden name="retURL" value="https://mchenryspagg.github.io/velociti-bike">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -166,8 +169,8 @@
           <label for="bike_model" class="block text-sm font-semibold text-velociti-navy mb-2">Bike Make &amp; Model <span class="text-gray-400 font-normal">(optional)</span></label>
           <input
             type="text"
-            id="bike_model"
-            name="bike_model"
+            id="00Ng500000IkFcn"
+            name="00Ng500000IkFcn"
             maxlength="100"
             placeholder="e.g. Velociti Ridge 27.5, 2024"
             class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
