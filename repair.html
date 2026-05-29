@@ -63,7 +63,12 @@
     <div class="max-w-2xl mx-auto px-6">
 
       <!-- TODO: Replace action URL with Salesforce Web-to-Case endpoint and add hidden orgid field on go-live -->
-      <form id="case-form" action="#" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+      <form id="case-form" action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST" novalidate class="bg-gray-50 border border-gray-100 rounded-lg p-8 space-y-6">
+
+        <input type=hidden name="orgid" value="00Dg500000AQs73">
+        <input type=hidden name="retURL" value="https://mchenryspagg.github.io/velociti-bike/thank-you-service.html">
+        <input type="hidden" name="debug" value="1">
+        <input type="hidden" name="debugEmail" value="hnry_ugo@yahoo.com">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -139,10 +144,11 @@
               class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none bg-white"
             >
               <option value="">— Select —</option>
-              <option value="Tune-Up">Tune-Up (₦35,000)</option>
-              <option value="Full Overhaul">Full Overhaul (₦120,000)</option>
-              <option value="Custom Build">Custom Build (from ₦250,000)</option>
-              <option value="Diagnostic">Diagnostic / Not sure</option>
+              <option value="Repair">Repair</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Warranty">Warranty</option>
+              <option value="Complaint">Complaint</option>
+              <option value="General Inquiry">General Inquiry / Not Sure</option>
             </select>
             <span id="type-error" class="hidden text-sm text-velociti-red mt-1 block" role="alert"></span>
           </div>
@@ -165,8 +171,8 @@
           <label for="bike_model" class="block text-sm font-semibold text-velociti-navy mb-2">Bike Make &amp; Model <span class="text-gray-400 font-normal">(optional)</span></label>
           <input
             type="text"
-            id="bike_model"
-            name="bike_model"
+            id="00Ng500000IkFcn"
+            name="00Ng500000IkFcn"
             maxlength="100"
             placeholder="e.g. Velociti Ridge 27.5, 2024"
             class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-velociti-teal focus:ring-2 focus:ring-velociti-teal/20 focus:outline-none"
@@ -228,65 +234,63 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    (function () {
-      const form = document.getElementById('case-form');
-      const success = document.getElementById('case-success');
+  (function () {
+    const form = document.getElementById('case-form');
+    const required = ['name', 'email', 'phone', 'subject', 'type', 'description'];
 
-      const required = ['name', 'email', 'phone', 'subject', 'type', 'description'];
-
-      function setError(id, msg) {
-        const el = document.getElementById(id + '-error');
-        if (!el) return;
-        if (msg) {
-          el.textContent = msg;
-          el.classList.remove('hidden');
-        } else {
-          el.textContent = '';
-          el.classList.add('hidden');
-        }
+    function setError(id, msg) {
+      const el = document.getElementById(id + '-error');
+      if (!el) return;
+      if (msg) {
+        el.textContent = msg;
+        el.classList.remove('hidden');
+      } else {
+        el.textContent = '';
+        el.classList.add('hidden');
       }
+    }
 
-      function validate() {
-        let ok = true;
-        required.forEach(function (name) {
-          const input = document.getElementById(name);
-          const value = (input.value || '').trim();
-          if (!value) {
-            setError(name, 'This field is required.');
+    function validate() {
+      let ok = true;
+      required.forEach(function (name) {
+        const input = document.getElementById(name);
+        const value = (input.value || '').trim();
+        if (!value) {
+          setError(name, 'This field is required.');
+          ok = false;
+          return;
+        }
+        if (name === 'email') {
+          const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRe.test(value)) {
+            setError(name, 'Please enter a valid email address.');
             ok = false;
             return;
           }
-          if (name === 'email') {
-            const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRe.test(value)) {
-              setError(name, 'Please enter a valid email address.');
-              ok = false;
-              return;
-            }
-          }
-          setError(name, '');
-        });
-        return ok;
-      }
+        }
+        setError(name, '');
+      });
+      return ok;
+    }
 
-      form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', function (e) {
+      // Only block submission if validation fails
+      if (!validate()) {
         e.preventDefault();
-        if (!validate()) return;
+        return false;
+      }
+      // Validation passed — let the form POST natively to Salesforce
+    });
 
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      });
-
-      required.forEach(function (name) {
-        const input = document.getElementById(name);
-        input.addEventListener('input', function () { setError(name, ''); });
-        input.addEventListener('change', function () { setError(name, ''); });
-      });
-    })();
-  </script>
+    required.forEach(function (name) {
+      const input = document.getElementById(name);
+      input.addEventListener('input', function () { setError(name, ''); });
+      input.addEventListener('change', function () { setError(name, ''); });
+    });
+  })();
+</script>
 </body>
 </html>
